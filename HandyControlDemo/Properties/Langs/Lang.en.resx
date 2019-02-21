@@ -435,10 +435,67 @@
   <data name="OutlineText" xml:space="preserve">
     <value>OutlineText</value>
   </data>
-  <data name="FlipNumber" xml:space="preserve">
-    <value>FlipNumber</value>
-  </data>
   <data name="QQGroup" xml:space="preserve">
     <value>QQ Group</value>
+  </data>
+  <data name="FlipClock" xml:space="preserve">
+    <value>FlipClock</value>
+  </data>
+  <data name="OpenBlurWindow" xml:space="preserve">
+    <value>open blur window</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Shield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
+  <data name="WaterfallPanel" xml:space="preserve">
+    <value>WaterfallPanel</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="CoverView" xml:space="preserve">
+    <value>CoverView</value>
+  </data>
+  <data name="CoverFlow" xml:space="preserve">
+    <value>CoverFlow</value>
+  </data>
+  <data name="PlsEnterKey" xml:space="preserve">
+    <value>Please input a keyword</value>
+  </data>
+  <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
+    <value>open no Non-client Area dragable window</value>
+  </data>
+  <data name="DragHere" xml:space="preserve">
+    <value>Drag here</value>
+  </data>
+  <data name="MessageBox" xml:space="preserve">
+    <value>MessageBox</value>
+  </data>
+  <data name="ProgressButton" xml:space="preserve">
+    <value>ProgressButton</value>
+  </data>
+  <data name="UploadStr" xml:space="preserve">
+    <value>Upload;Uploading</value>
+  </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>open custom message window</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>ChatBubble</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>Push to talk</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>Sec</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label</value>
   </data>
 </root>

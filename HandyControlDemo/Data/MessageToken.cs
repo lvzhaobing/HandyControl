@@ -58,9 +58,29 @@
 	
         public static readonly string OutlineTextDemoCtl = nameof(OutlineTextDemoCtl);
 	
-        public static readonly string FlipNumberDemoCtl = nameof(FlipNumberDemoCtl);
+        public static readonly string FlipClockDemoCtl = nameof(FlipClockDemoCtl);
 	
         public static readonly string QQGroupView = nameof(QQGroupView);
+	
+        public static readonly string BlurWindow = nameof(BlurWindow);
+	
+        public static readonly string NoNonClientAreaDragableWindow = nameof(NoNonClientAreaDragableWindow);
+	
+        public static readonly string RateDemoCtl = nameof(RateDemoCtl);
+	
+        public static readonly string ShieldDemoCtl = nameof(ShieldDemoCtl);
+	
+        public static readonly string WaterfallPanelDemoCtl = nameof(WaterfallPanelDemoCtl);
+	
+        public static readonly string CoverViewDemoCtl = nameof(CoverViewDemoCtl);
+	
+        public static readonly string CoverFlowDemoCtl = nameof(CoverFlowDemoCtl);
+	
+        public static readonly string ProgressButtonDemoCtl = nameof(ProgressButtonDemoCtl);
+	
+        public static readonly string TransferDemoCtl = nameof(TransferDemoCtl);
+	
+        public static readonly string ChatBubbleDemoCtl = nameof(ChatBubbleDemoCtl);
 	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
@@ -114,16 +134,21 @@
 
         public static readonly string ToolBarDemoCtl = nameof(ToolBarDemoCtl);
 
+        public static readonly string LabelDemoCtl = nameof(LabelDemoCtl);
+
         public static readonly string CommonWindow = nameof(CommonWindow);
 
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);
 
-    	public static readonly string LoadShowContent = nameof(LoadShowContent);
+        public static readonly string LoadShowContent = nameof(LoadShowContent);
 
-		public static readonly string FullSwitch = nameof(FullSwitch);
+        public static readonly string FullSwitch = nameof(FullSwitch);
 
-		public static readonly string ContributorsView = nameof(ContributorsView);
+        public static readonly string ContributorsView = nameof(ContributorsView);
 
-		public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
-	}
+        public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
+
+        public static readonly string SendChatMessage = nameof(SendChatMessage);
+
+    }
 }

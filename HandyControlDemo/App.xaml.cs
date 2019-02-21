@@ -2,9 +2,11 @@
 using System.Globalization;
 using System.Threading;
 using System.Windows;
+using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
+using HandyControlDemo.Tools;
 
 namespace HandyControlDemo
 {
@@ -24,6 +26,8 @@ namespace HandyControlDemo
             {
                 UpdateSkin(GlobalData.Config.Skin);
             }
+
+            BlurWindow.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -49,6 +53,7 @@ namespace HandyControlDemo
             {
                 Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
             });
+            Current.MainWindow?.OnApplyTemplate();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -8,13 +7,14 @@
     <OutputType>library</OutputType>
     <RootNamespace>HandyControl</RootNamespace>
     <AssemblyName>HandyControl</AssemblyName>
-    <!--<TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>-->
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Net462|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,18 +23,31 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <netVersion>netgt40</netVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Net47|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <netVersion>netgt40</netVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Net45|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;net45</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;netle45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <netVersion>netgt40</netVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net462|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,9 +56,45 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <netVersion>netgt40</netVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net47|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <netVersion>netgt40</netVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net45|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;netle45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <netVersion>netgt40</netVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\Attach\WindowAttach.cs" />
+    <Compile Include="Controls\Attach\LinkElement.cs" />
+    <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
+    <Compile Include="Controls\Base\HeaderedSelectableItem.cs" />
+    <Compile Include="Controls\Base\ISelectable.cs" />
+    <Compile Include="Controls\Base\RegularItemsControl.cs" />
+    <Compile Include="Controls\Base\SelectableItem.cs" />
+    <Compile Include="Controls\Base\SimpleItemsControl.cs" />
+    <Compile Include="Controls\Button\ProgressButton.cs" />
+    <Compile Include="Controls\Cover\CoverFlow\CoverFlow.cs" />
+    <Compile Include="Controls\Cover\CoverFlow\CoverFlowItem.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverViewContent.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverViewItem.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Attach\BorderElement.cs" />
@@ -60,26 +109,35 @@
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Other\Carousel.cs" />
-    <Compile Include="Controls\Other\CirclePanel.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
+    <Compile Include="Controls\Other\ChatBubble.cs" />
+    <Compile Include="Controls\Transfer\Transfer.cs" />
+    <Compile Include="Controls\Transfer\TransferGroup.cs" />
+    <Compile Include="Controls\Transfer\TransferItem.cs" />
+    <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
+    <Compile Include="Controls\Other\Shield.cs" />
+    <Compile Include="Controls\Panel\WaterfallPanel.cs" />
+    <Compile Include="Controls\Rate\Rate.cs" />
+    <Compile Include="Controls\Rate\RateItem.cs" />
     <Compile Include="Controls\Text\OutlineText.cs" />
-    <Compile Include="Controls\Other\GifImage.cs" />
+    <Compile Include="Controls\Image\GifImage.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
-    <Compile Include="Controls\Tag\TagPanel.cs" />
-    <Compile Include="Controls\Tag\Tag.cs" />
+    <Compile Include="Controls\Text\Tag\TagPanel.cs" />
+    <Compile Include="Controls\Text\Tag\Tag.cs" />
     <Compile Include="Controls\Time\CalendarWithClock.cs" />
     <Compile Include="Controls\Time\Clock\Clock.cs" />
     <Compile Include="Controls\Time\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Other\Growl.cs" />
-    <Compile Include="Controls\Other\ImageViewer.cs" />
+    <Compile Include="Controls\Image\ImageViewer.cs" />
     <Compile Include="Controls\Input\ComboBox.cs" />
     <Compile Include="Controls\Input\DatePicker.cs" />
     <Compile Include="Controls\Input\DateTimePicker.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\PasswordBox.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
-    <Compile Include="Controls\Other\ISingleOpen.cs" />
+    <Compile Include="Controls\Base\ISingleOpen.cs" />
     <Compile Include="Controls\Input\NumericUpDown.cs" />
     <Compile Include="Controls\Other\Pagination.cs" />
     <Compile Include="Controls\Attach\IconElement.cs" />
@@ -91,11 +149,16 @@
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
-    <Compile Include="Controls\Other\InternalCanvas.cs" />
+    <Compile Include="Controls\Internal\InternalCanvas.cs" />
     <Compile Include="Controls\StepBar\StepBar.cs" />
     <Compile Include="Controls\StepBar\StepBarItem.cs" />
+    <Compile Include="Controls\Time\FlipClock\FlipClock.cs" />
     <Compile Include="Controls\Time\FlipClock\FlipNumber.cs" />
+    <Compile Include="Controls\Window\BlurWindow.cs" />
+    <Compile Include="Controls\Window\MessageBox.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
+    <Compile Include="Data\Enum\ChatMessageType.cs" />
+    <Compile Include="Data\Enum\ChatRoleType.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
@@ -106,18 +169,17 @@
     <Compile Include="Data\Gif\GifPropertyItem.cs" />
     <Compile Include="Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="Data\Gif\GPStream.cs" />
+    <Compile Include="Data\MessageBoxInfo.cs" />
+    <Compile Include="Data\ResourceToken.cs" />
+    <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
+    <Compile Include="Tools\Extension\EnumerableExtension.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\GifImageAnimator.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
     <Compile Include="Data\Operation\OperationResult!1.cs" />
     <Compile Include="Data\Operation\OperationResult.cs" />
-    <Compile Include="Data\ResourceToken.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResourceToken.tt</DependentUpon>
-    </Compile>
     <Compile Include="Expression\Drawing\BezierCurveFlattener.cs" />
     <Compile Include="Expression\Drawing\CommonExtensions.cs" />
     <Compile Include="Expression\Drawing\ExceptionStringTable.cs" />
@@ -150,6 +212,7 @@
     <Compile Include="Expression\Media\UnitType.cs" />
     <Compile Include="Expression\Shapes\Arc.cs" />
     <Compile Include="Expression\Shapes\PrimitiveShape.cs" />
+    <Compile Include="Tools\Helper\DesignerHelper.cs" />
     <Compile Include="Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs" />
@@ -162,7 +225,7 @@
     <Compile Include="Controls\Input\WatermarkTextBox.cs" />
     <Compile Include="Controls\Window\ImageBrowser.cs" />
     <Compile Include="Controls\Window\PopupWindow.cs" />
-    <Compile Include="Controls\Window\WindowBorderless.cs" />
+    <Compile Include="Controls\Window\Window.cs" />
     <Compile Include="Data\ValueBoxes.cs" />
     <Compile Include="Data\ColorRange.cs" />
     <Compile Include="Data\Enum\IpType.cs" />
@@ -244,6 +307,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Basic\Behaviors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Basic\Brushes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -288,7 +355,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\ChatBubbleBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\CheckBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\CoverFlowBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\CoverViewBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,11 +379,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\ProgressButtonBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\RadioGroupBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\SearchBarBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\ShieldBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,7 +403,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Styles\FlipNumber.xaml">
+    <Page Include="Themes\Styles\Base\TransferBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ChatBubble.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\CoverFlow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\CoverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\FlipClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -500,6 +607,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\MessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\NumericUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -512,7 +623,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\PopupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ProgressButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -521,6 +640,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\RadioGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Rate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\RateBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -533,6 +660,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\SearchBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Shield.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\SimpleItemsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -580,6 +715,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Transfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\TransitioningContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -588,13 +727,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Styles\Window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\Styles\ToggleButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Window.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Theme.xaml">
       <SubType>Designer</SubType>
@@ -629,14 +768,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\ResourceToken.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ResourceToken.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -13,6 +13,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -25,6 +27,17 @@
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Net47|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
@@ -35,19 +48,18 @@
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Resources\Img\icon.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Net45|AnyCPU'">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net47|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Img\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
@@ -68,6 +80,7 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -90,7 +103,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageToken.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Model\ChatInfoModel.cs" />
     <Compile Include="Data\Model\ContributorModel.cs" />
+    <Compile Include="Data\Model\CoverViewDemoModel.cs" />
     <Compile Include="Data\Model\DemoDataModel.cs" />
     <Compile Include="Data\Model\StepBarDemoModel.cs" />
     <Compile Include="Properties\Langs\Lang.Designer.cs">
@@ -104,10 +119,16 @@
       <DependentUpon>Lang.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Service\DataService.cs" />
-    <Compile Include="Tools\AssemblyHelper.cs" />
+    <Compile Include="Tools\Converter\String2BrushConverter.cs" />
+    <Compile Include="Tools\Helper\AssemblyHelper.cs" />
+    <Compile Include="Tools\Helper\CommonHelper.cs" />
     <Compile Include="Tools\Converter\StringRepeatConverter.cs" />
+    <Compile Include="Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="UserControl\Basic\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Basic\ChatBox.xaml.cs">
+      <DependentUpon>ChatBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
@@ -117,6 +138,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\CarouselDemoCtl.xaml.cs">
       <DependentUpon>CarouselDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\ChatBubbleDemoCtl.xaml.cs">
+      <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
@@ -136,14 +160,20 @@
     <Compile Include="UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
       <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\CoverFlowDemoCtl.xaml.cs">
+      <DependentUpon>CoverFlowDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\CoverViewDemoCtl.xaml.cs">
+      <DependentUpon>CoverViewDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\DatePickerDemoCtl.xaml.cs">
       <DependentUpon>DatePickerDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\DateTimePickerDemoCtl.xaml.cs">
       <DependentUpon>DateTimePickerDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Controls\FlipNumberDemoCtl.xaml.cs">
-      <DependentUpon>FlipNumberDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Controls\FlipClockDemoCtl.xaml.cs">
+      <DependentUpon>FlipClockDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
       <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
@@ -169,11 +199,20 @@
     <Compile Include="UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\ProgressButtonDemoCtl.xaml.cs">
+      <DependentUpon>ProgressButtonDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\RateDemoCtl.xaml.cs">
+      <DependentUpon>RateDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
       <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\SearchBarDemoCtl.xaml.cs">
       <DependentUpon>SearchBarDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\ShieldDemoCtl.xaml.cs">
+      <DependentUpon>ShieldDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\StepBarDemoCtl.xaml.cs">
       <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
@@ -186,6 +225,12 @@
     </Compile>
     <Compile Include="UserControl\Controls\TimePickerDemoCtl.xaml.cs">
       <DependentUpon>TimePickerDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\TransferDemoCtl.xaml.cs">
+      <DependentUpon>TransferDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
+      <DependentUpon>WaterfallPanelDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\WindowDemoCtl.xaml.cs">
       <DependentUpon>WindowDemoCtl.xaml</DependentUpon>
@@ -216,6 +261,9 @@
     </Compile>
     <Compile Include="UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Styles\LabelDemoCtl.xaml.cs">
+      <DependentUpon>LabelDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\ListViewDemoCtl.xaml.cs">
       <DependentUpon>ListViewDemoCtl.xaml</DependentUpon>
@@ -289,23 +337,32 @@
     <Compile Include="UserControl\Styles\TreeViewDemoCtl.xaml.cs">
       <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ComboBoxDemoViewModel.cs" />
-    <Compile Include="ViewModel\ContributorsViewModel.cs" />
-    <Compile Include="ViewModel\GrowlDemoViewModel.cs" />
-    <Compile Include="ViewModel\ImageBrowserDemoViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\PaginationDemoViewModel.cs" />
-    <Compile Include="ViewModel\StepBarDemoViewModel.cs" />
+    <Compile Include="ViewModel\Basic\ChatBoxViewModel.cs" />
+    <Compile Include="ViewModel\Common\ComboBoxDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\CoverViewModel.cs" />
+    <Compile Include="ViewModel\DemoViewModelBase!1.cs" />
+    <Compile Include="ViewModel\Main\ContributorsViewModel.cs" />
+    <Compile Include="ViewModel\Controls\GrowlDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\ImageBrowserDemoViewModel.cs" />
+    <Compile Include="ViewModel\Main\MainViewModel.cs" />
+    <Compile Include="ViewModel\Controls\PaginationDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\StepBarDemoViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="ViewModel\WindowDemoViewModel.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
+    <Compile Include="ViewModel\Controls\WindowDemoViewModel.cs" />
+    <Compile Include="Window\AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\BlurWindow.xaml.cs">
+      <DependentUpon>BlurWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window\CommonWindow.xaml.cs">
       <DependentUpon>CommonWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window\CustomNonClientAreaWindow.xaml.cs">
       <DependentUpon>CustomNonClientAreaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\NoNonClientAreaDragableWindow.xaml.cs">
+      <DependentUpon>NoNonClientAreaDragableWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -367,6 +424,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Basic\ChatBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\AnimationPathDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -376,6 +437,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\CarouselDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\ChatBubbleDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -403,6 +468,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\CoverFlowDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\CoverViewDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\DatePickerDemoCtl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -411,7 +484,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Controls\FlipNumberDemoCtl.xaml">
+    <Page Include="UserControl\Controls\FlipClockDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -447,11 +520,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\ProgressButtonDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\RateDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\ScrollViewerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\SearchBarDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\ShieldDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -468,6 +553,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\TimePickerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\TransferDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\WaterfallPanelDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -508,6 +601,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Styles\GroupBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Styles\LabelDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -607,7 +704,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window1.xaml">
+    <Page Include="Window\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\BlurWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -619,17 +720,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Window\NoNonClientAreaDragableWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HandyControl\HandyControl.csproj">
-      <Project>{dc966e3d-bcff-4652-98cf-070e5494749a}</Project>
-      <Name>HandyControl</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Img\1.jpg" />
@@ -647,6 +746,28 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Label_16x.png" />
+    <Resource Include="Resources\Img\Chat\chat_back1.jpg" />
+    <Resource Include="Resources\Img\Chat\chat_back2.jpg" />
+    <Resource Include="Resources\Img\LeftMainContent\Bubble_16xLG.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Transfer_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ProgressButton_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\SortAscending_grey_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\LinearCarousel_16x.png" />
+    <Resource Include="Resources\Img\Album\1.jpg" />
+    <Resource Include="Resources\Img\Album\10.jpg" />
+    <Resource Include="Resources\Img\Album\2.jpg" />
+    <Resource Include="Resources\Img\Album\3.jpg" />
+    <Resource Include="Resources\Img\Album\4.jpg" />
+    <Resource Include="Resources\Img\Album\5.jpg" />
+    <Resource Include="Resources\Img\Album\6.jpg" />
+    <Resource Include="Resources\Img\Album\7.jpg" />
+    <Resource Include="Resources\Img\Album\8.jpg" />
+    <Resource Include="Resources\Img\Album\9.jpg" />
+    <Resource Include="Resources\Img\LeftMainContent\DetailDataView_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Panel_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Shield_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Star.png" />
     <Resource Include="Resources\Img\qq-group.jpg" />
     <Resource Include="Resources\Img\LeftMainContent\FlipVertical_16x.png" />
     <Resource Include="Resources\Img\car_chase.gif" />
@@ -722,5 +843,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HandyControl\HandyControl.csproj">
+      <Project>{dc966e3d-bcff-4652-98cf-070e5494749a}</Project>
+      <Name>HandyControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
